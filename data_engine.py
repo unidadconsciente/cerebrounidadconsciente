@@ -8,11 +8,12 @@ def get_google_data():
     creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=scope)
     client = gspread.authorize(creds)
     
-    doc = client.open_by_key("1_zDRbDQ3KXl8aiFNkEuOsKLIlKwRc8bD4fyVHguMKI4")
+    # Acceso directo al ID verificado
+    sheet = client.open_by_key("1_zDRbDQ3KXl8aiFNkEuOsKLIlKwRc8bD4fyVHguMKI4")
     
-    # Cargamos las 3 fuentes de verdad
-    df_cont = pd.DataFrame(doc.worksheet("Contenido").get_all_records())
-    df_conf = pd.DataFrame(doc.worksheet("Config_Archivos").get_all_records())
-    df_avatar = pd.DataFrame(doc.worksheet("Avatar_nuevo").get_all_records())
+    # Naming solicitado: avatar, contenido, configuracion
+    avatar = pd.DataFrame(sheet.worksheet("Avatar_nuevo").get_all_records())
+    contenido = pd.DataFrame(sheet.worksheet("Contenido").get_all_records())
+    configuracion = pd.DataFrame(sheet.worksheet("Config_Archivos").get_all_records())
     
-    return df_cont, df_conf, df_avatar
+    return avatar, contenido, configuracion
