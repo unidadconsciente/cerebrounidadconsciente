@@ -1,6 +1,6 @@
 import streamlit as st
 from data_engine import get_google_data
-from prompt_engine import build_prompt
+from prompt_engine import build_master_prompt
 
 st.set_page_config(page_title="Cerebro UC - Matriz de Control", layout="wide")
 
