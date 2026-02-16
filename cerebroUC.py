@@ -75,7 +75,7 @@ if st.button("🚀 GENERAR PROMPT MAESTRO"):
     fila_c_editada['Resultado'] = resultado
     
     # Llamada al cerebro (build_prompt ya hace el cruce interno con configuracion)
-    prompt_final = build_prompt(fila_c_editada, fila_a, configuracion, notas_extra)
+    prompt_final = build_master_prompt(fila_c_editada, fila_a, configuracion, notas_extra)
     
     st.success("Prompt generado con éxito. Cópialo y pégalo en el Gemini de trabajo.")
     st.code(prompt_final, language="markdown")
