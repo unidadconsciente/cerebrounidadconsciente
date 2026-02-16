@@ -46,6 +46,7 @@ Para redactar esta pieza DEBES seguir estrictamente la estructura paso a paso de
 - El Merge: {contenido['El Merge (Línea Narrativa)']}
 - Deseo: {contenido['Deseo']}
 - Resultado: {contenido['Resultado']}
+- CTA ORIGINAL: {contenido['CTA']}
 
 3. FUNDAMENTOS TÉCNICOS (Config_Archivos):
 Usa estos archivos para validar la teoría científica y profesional:
@@ -59,4 +60,13 @@ NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 
 TAREA: 
 Escribe 5 propuestas de {contenido['Formato']} aplicando los datos anteriores dentro del molde de '01_Estructura_Narrativa.docx'.
+Restricciones
+1.ABSTRACCIÓN DEL AVATAR: El nombre del perfil (ej. Sofía) es solo una referencia para el sistema. Prohibido usar nombres propios en el contenido final. Habla a la psicología, al cargo y a la situación del avatar, no a su nombre.
+2. FLUIDEZ ESTRATÉGICA: No anuncies las partes de la estrategia. Evita frases tipo "según la metodología" o "integrando el concepto". El texto debe ser fluido y orgánico
+3. CTA ÉPICO: No copies literal la columna [CTA]. Úsala como base para crear una invitación inspiradora que conecte con el resultado de alto nivel que busca el perfil.
+4. EVOCACIÓN BIOLÓGICA: No te limites a repetir el nombre de la hormona o el neurotransmisor de la tabla. Tu objetivo es usar palabras clave, metáforas y un estilo narrativo que "provoque" o "cree" ese estado químico en el lector. Puedes mencionar términos científicos si aportan valor, pero no como una lista de datos.
+5. No digas "nombre del archivo"
+
+Obligación: Realiza investigación profunda de los archvios en files, que el output sea profesional
+
 """
