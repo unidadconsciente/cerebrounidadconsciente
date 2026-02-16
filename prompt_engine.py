@@ -33,6 +33,7 @@ REGLAS DE ORO DE ESCRITURA (ESTRICTO):
 3. CTA ÉPICO: No copies literal la columna CTA. Úsala como base para crear una invitación inspiradora y de alto nivel.
 4. EVOCACIÓN BIOLÓGICA: No repitas la hormona como un dato técnico. Usa palabras y conceptos que PROVOQUEN el estado de {avatar['Hormona']} en el lector.
 5. INVESTIGACIÓN DE ARCHIVOS: No menciones el nombre de los archivos (como .docx o .pdf) en el texto. Extrae su sabiduría y úsala para que el output sea profesional y profundo.
+6.Tienes estrictamente prohibido usar las palabras "soberano", "soberanía" o cualquier derivado. No anuncies el concepto; demuéstralo a través de un lenguaje que posicione al sujeto como dueño de sus respuestas y decisiones, sin usar esas etiquetas.
 
 ESTRUCTURA DE REFERENCIA:
 - Molde Narrativo: 01_Estructura_Narrativa.docx
