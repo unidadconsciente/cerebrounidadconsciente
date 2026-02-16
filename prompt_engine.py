@@ -34,7 +34,7 @@ REGLAS DE ORO DE ESCRITURA (ESTRICTO):
 4. EVOCACIÓN BIOLÓGICA: No repitas la hormona como un dato técnico. Usa palabras y conceptos que PROVOQUEN el estado de {avatar['Hormona']} en el lector.
 5. INVESTIGACIÓN DE ARCHIVOS: No menciones el nombre de los archivos (como .docx o .pdf) en el texto. Extrae su sabiduría y úsala para que el output sea profesional y profundo.
 6.Tienes estrictamente prohibido usar las palabras "soberano", "soberanía" o cualquier derivado. No anuncies el concepto; demuéstralo a través de un lenguaje que posicione al sujeto como dueño de sus respuestas y decisiones, sin usar esas etiquetas.
-
+7 Quiero que el texto de las slides sea consicio y punchy. Quiero que revises apartado de hooks en '01_Estructura_Narrativa.docx' para que uses las reglas de los hooks y los tipos de hooks
 ESTRUCTURA DE REFERENCIA:
 - Molde Narrativo: 01_Estructura_Narrativa.docx
 - Teoría de Liderazgo: {tema1_nombre} (Basado en {file_t1})
