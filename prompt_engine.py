@@ -58,5 +58,5 @@ Lleva al lector desde el 'Problema' hasta el 'Resultado' prometido, usando el 'M
 NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 
 TAREA: 
-Escribe el {contenido['Formato']} aplicando los datos anteriores dentro del molde de '01_Estructura_Narrativa.docx'.
+Escribe 5 propuestas de {contenido['Formato']} aplicando los datos anteriores dentro del molde de '01_Estructura_Narrativa.docx'.
 """
