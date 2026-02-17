@@ -102,7 +102,7 @@ with tab_matriz:
     # Cargamos el enfoque de la tabla pero permitimos editarlo/añadir notas
     notas_input = st.text_area(
         "Ajusta el enfoque o añade notas para el prompt:",
-        value=fila_c['Enfoque Narrativo / Pregunta Trivia'],
+        value=fila_c['Agregar nota extra (opcional)'],
         height=100
     )
 
