@@ -97,12 +97,14 @@ with tab_matriz:
         st.write(f"**Tema 2 (Bio):** {t2}")
         st.caption(f"Archivo: {f2}")
 
-    # 4. NOTAS EXTRAS Y ENFOQUE
+    
+# 4. NOTAS EXTRAS Y ENFOQUE
     st.markdown("### ✍️ Notas Extras y Enfoque Narrativo")
-    # Cargamos el enfoque de la tabla pero permitimos editarlo/añadir notas
+    # CORRECCIÓN: Dejamos el valor vacío por defecto para evitar KeyErrors y textos basura
     notas_input = st.text_area(
         "Ajusta el enfoque o añade notas para el prompt:",
-        value=fila_c['Agregar nota extra (opcional)'],
+        value="", 
+        placeholder="Escribe aquí notas adicionales o el enfoque específico...",
         height=100
     )
 
