@@ -17,6 +17,3 @@ def get_google_data():
 
         return avatar, contenido, configuracion, opciones
 
-    except gspread.exceptions.APIError as e:
-        st.error(f"Error de la API de Google: {e}")
-        st.stop()
