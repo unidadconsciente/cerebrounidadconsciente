@@ -1,6 +1,6 @@
 def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     """
-    CEREBRO UC: Generador de Prompt Maestro con Inteligencia de Serie y Estructura Tidy.
+    CEREBRO UC: Generador de Prompt Maestro con Inteligencia de Serie .
     """
     
     # 1. BÚSQUEDA DE ARCHIVOS TÉCNICOS
@@ -19,7 +19,7 @@ def build_master_prompt(contenido, avatar, configuracion, notas_extra):
 
     # 2. CONTEXTO SISTEMA
     contexto_sistema = (
-        f"Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el neuro-liderazgo. "
+        f"Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el marketing, meditas desde hace muchos años "
         f"Tu tono debe adaptarse al lenguaje de: {avatar['Tipo de Lenguaje']}."
     )
 
@@ -37,8 +37,8 @@ REGLAS DE ORO DE ESCRITURA (ESTRICTO):
 
 ESTRUCTURA DE REFERENCIA:
 - Molde Narrativo: 01_Estructura_Narrativa.docx
-- Teoría de Liderazgo: {tema1_nombre} (vía {file_t1})
-- Teoría Biológica: {tema2_nombre} (vía {file_t2})
+- TEMA 1: {tema1_nombre} (vía {file_t1})
+- TEMA 2: {tema2_nombre} (vía {file_t2})
 
 CONTEXTO ESTRATÉGICO DE LA SERIE:
 - Serie Actual: {contenido['Serie']}
@@ -53,7 +53,7 @@ MATERIA PRIMA:
 - Enfoque Específico: {contenido['Enfoque Narrativo / Pregunta Trivia']}
 
 ESTRATEGIA EDITADA:
-- Objetivo: {contenido['Objetivo']}
+- Objetivo: {contenido['Objetivo_Serie']}
 - Formato: {contenido['Formato']}
 - Problema (Situación): {contenido['Problema (Situación)']}
 - El Merge: {contenido['El Merge (Línea Narrativa)']}
@@ -64,6 +64,7 @@ TAREA:
 Genera 5 propuestas creativas para este {contenido['Formato']}. 
 Si es 'Post', profundiza en la integración técnica de los archivos. 
 Si es 'Trivia', genera una interacción de alto impacto que valide el problema del avatar.
+Si es video, incluye propuestas de tomas eimágenes y musica que genere las emociones deseadas en el avatar 
 
 NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 """
