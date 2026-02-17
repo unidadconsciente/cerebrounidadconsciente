@@ -8,17 +8,13 @@ def get_google_data():
     creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=scope)
     client = gspread.authorize(creds)
     
+    # Acceso directo al ID verificado
     sheet = client.open_by_key("1_zDRbDQ3KXl8aiFNkEuOsKLIlKwRc8bD4fyVHguMKI4")
     
-    # Carga y limpieza de nombres de columnas para evitar KeyErrors
-    def get_df(name):
-        df = pd.DataFrame(sheet.worksheet(name).get_all_records())
-        df.columns = [str(c).strip() for c in df.columns] # Limpia espacios invisibles
-        return df
-
-    avatar = get_df("Avatar_nuevo")
-    contenido = get_df("Contenido")
-    configuracion = get_df("Config_Archivos")
-    opciones = get_df("Config_Opciones")
+    # Carga de las 4 pestañas necesarias
+    avatar = pd.DataFrame(sheet.worksheet("Avatar_nuevo").get_all_records())
+    contenido = pd.DataFrame(sheet.worksheet("Contenido").get_all_records())
+    configuracion = pd.DataFrame(sheet.worksheet("Config_Archivos").get_all_records())
+    opciones = pd.DataFrame(sheet.worksheet("Config_Opciones").get_all_records())
 
     return avatar, contenido, configuracion, opciones
