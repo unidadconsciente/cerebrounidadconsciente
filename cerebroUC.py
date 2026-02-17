@@ -1,14 +1,21 @@
 import streamlit as st
 from data_engine import get_google_data
 from prompt_engine import build_master_prompt
+from promt_ppts import app_arquitecto_sesiones
 
 st.set_page_config(page_title="Cerebro UC - Matriz de Control", layout="wide")
 
 # Carga de datos
 avatar, contenido, configuracion = get_google_data()
 
-st.title("🧠 Matriz de Control: Unidad Consciente")
-st.markdown("---")
+
+#Pestañas
+# --- ESTRUCTURA DE PESTAÑAS ---
+tab_matriz, tab_ppts = st.tabs(["📊 Matriz de Control", "🏗️ Arquitecto de Sesiones"])
+
+with tab_matriz:
+    st.title("🧠 Matriz de Control: Unidad Consciente")
+    st.markdown("---")
 
 # SELECTOR MAESTRO
 semanas = contenido['Semana'].unique()
@@ -79,3 +86,9 @@ if st.button("🚀 GENERAR PROMPT MAESTRO"):
     
     st.success("Prompt generado con éxito. Cópialo y pégalo en el Gemini de trabajo.")
     st.code(prompt_final, language="markdown")
+
+# PESTAÑA 2: ARQUITECTO DE SESIONES (Llamada al módulo externo)
+with tab_ppts:
+    # LLAMAMOS A LA FUNCIÓN QUE IMPORTAMOS
+    mostrar_arquitecto_ppts()
+
