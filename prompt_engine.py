@@ -1,6 +1,6 @@
 def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     """
-    CEREBRO UC: Generador de Prompt Maestro.
+    CEREBRO UC: Generador de Prompt Maestro con Inteligencia de Serie y Estructura Tidy.
     """
     
     # 1. BÚSQUEDA DE ARCHIVOS TÉCNICOS
@@ -17,7 +17,7 @@ def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     except:
         file_t2 = "ARCHIVO_NO_DEFINIDO"
 
-    # 2. CONTEXTO SISTEMA (Ajustado: Tono dinámico basado en Avatar)
+    # 2. CONTEXTO SISTEMA
     contexto_sistema = (
         f"Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el neuro-liderazgo. "
         f"Tu tono debe adaptarse al lenguaje de: {avatar['Tipo de Lenguaje']}."
@@ -28,35 +28,42 @@ def build_master_prompt(contenido, avatar, configuracion, notas_extra):
 {contexto_sistema}
 
 REGLAS DE ORO DE ESCRITURA (ESTRICTO):
-1. ABSTRACCIÓN DEL AVATAR: El nombre del perfil es solo una referencia interna. PROHIBIDO usar nombres propios en el contenido final. Dirígete a la psicología y situación del cargo, no a una persona llamada {avatar['Nombre']}.
-2. FLUIDEZ ESTRATÉGICA: No anuncies las partes de la estrategia. Evita frases como "según la metodología" o "haciendo un merge". El texto debe ser fluido.
-3. CTA ÉPICO: No copies literal la columna CTA. Úsala como base para crear una invitación inspiradora y de alto nivel.
-4. EVOCACIÓN BIOLÓGICA: No repitas la hormona como un dato técnico. Usa palabras y conceptos que PROVOQUEN el estado de {avatar['Hormona']} en el lector.
-5. INVESTIGACIÓN DE ARCHIVOS: No menciones el nombre de los archivos (como .docx o .pdf) en el texto. Extrae su sabiduría y úsala para que el output sea profesional y profundo.
-6.Tienes estrictamente prohibido usar las palabras "soberano", "soberanía" o cualquier derivado. No anuncies el concepto; demuéstralo a través de un lenguaje que posicione al sujeto como dueño de sus respuestas y decisiones, sin usar esas etiquetas.
-7 Quiero que el texto de las slides sea consicio y punchy. Quiero que revises apartado de hooks en '01_Estructura_Narrativa.docx' para que uses las reglas de los hooks y los tipos de hooks
+1. ABSTRACCIÓN DEL AVATAR: Prohibido usar nombres propios. Dirígete a la psicología y cargo del avatar.
+2. FLUIDEZ ESTRATÉGICA: Sin anuncios de metodología o fases. El texto debe ser fluido y orgánico.
+3. CTA ÉPICO: Crea una invitación inspiradora basada en el objetivo, no copies literal el CTA.
+4. EVOCACIÓN BIOLÓGICA: Provoca la liberación de {avatar['Hormona']} en el lector a través de las palabras, no menciones la hormona.
+5. NO SOBERANÍA: Prohibido usar 'soberano', 'soberanía' o derivados. Demuéstralo con el lenguaje.
+6. CONCISIÓN: Texto punchy. Usa las reglas de hooks de '01_Estructura_Narrativa.docx'.
+
 ESTRUCTURA DE REFERENCIA:
 - Molde Narrativo: 01_Estructura_Narrativa.docx
-- Teoría de Liderazgo: {tema1_nombre} (Basado en {file_t1})
-- Teoría Biológica: {tema2_nombre} (Basado en {file_t2})
+- Teoría de Liderazgo: {tema1_nombre} (vía {file_t1})
+- Teoría Biológica: {tema2_nombre} (vía {file_t2})
+
+CONTEXTO ESTRATÉGICO DE LA SERIE:
+- Serie Actual: {contenido['Serie']}
+- Etapa de Campaña: {contenido['Objetivo_Serie']}
+- Paso Narrativo: {contenido['Paso (1-4)']} de 4
+- Tipo de Contenido: {contenido['Tipo de Contenido']}
 
 MATERIA PRIMA:
-- Cargo/Perfil: {avatar['Nombre']} | Edad: {avatar['Edad']}
+- Perfil: {avatar['Nombre']} | Edad: {avatar['Edad']}
 - Conflicto: {avatar['Incongruencia (El Conflicto)']}
-- Necesidad: {avatar['Necesidad (CNV)']}
-- Palabra Clave: {avatar['Palabra Clave (Sally)']}
 - Villano: {avatar['Villano']} | Metamensaje: {avatar['Metamensaje']}
+- Enfoque Específico: {contenido['Enfoque Narrativo / Pregunta Trivia']}
 
-ESTRATEGIA:
+ESTRATEGIA EDITADA:
 - Objetivo: {contenido['Objetivo']}
 - Formato: {contenido['Formato']}
-- Problema: {contenido['Problema (Situación)']}
+- Problema (Situación): {contenido['Problema (Situación)']}
 - El Merge: {contenido['El Merge (Línea Narrativa)']}
+- Deseo: {contenido['Deseo']}
 - Resultado: {contenido['Resultado']}
-- CTA BASE: {contenido['CTA']}
 
 TAREA:
-Genera 5 propuestas de {contenido['Formato']} aplicando la investigación profunda de los archivos y respetando las reglas de escritura. 
+Genera 5 propuestas creativas para este {contenido['Formato']}. 
+Si es 'Post', profundiza en la integración técnica de los archivos. 
+Si es 'Trivia', genera una interacción de alto impacto que valide el problema del avatar.
 
 NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 """
