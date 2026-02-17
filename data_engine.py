@@ -17,4 +17,10 @@ def get_google_data():
     configuracion = pd.DataFrame(sheet.worksheet("Config_Archivos").get_all_records())
     opciones = pd.DataFrame(sheet.worksheet("Config_Opciones").get_all_records())
 
+    # --- ÚNICA CORRECCIÓN: Limpieza de nombres de columnas ---
+    avatar.columns = [c.strip() for c in avatar.columns]
+    contenido.columns = [c.strip() for c in contenido.columns]
+    configuracion.columns = [c.strip() for c in configuracion.columns]
+    opciones.columns = [c.strip() for c in opciones.columns]
+
     return avatar, contenido, configuracion, opciones
