@@ -17,7 +17,8 @@ def get_google_data():
     
     # CARGA EXPLÍCITA PARA CONFIG_OPCIONES (Para evitar el KeyError)
     # get_all_values trae la matriz cruda; convertimos la primera fila en columnas
+# CARGA EXPLÍCITA PARA CONFIG_OPCIONES (Para evitar el KeyError)
+    # get_all_values trae la matriz cruda; convertimos la primera fila en columnas
     data_opciones = sheet.worksheet("Config_Opciones").get_all_values()
     opciones = pd.DataFrame(data_opciones[1:], columns=data_opciones[0])
-
     return avatar, contenido, configuracion, opciones
