@@ -99,12 +99,14 @@ with tab_matriz:
 
     
 # 4. NOTAS EXTRAS Y ENFOQUE
+# 4. NOTAS EXTRAS Y ENFOQUE
     st.markdown("### ✍️ Notas Extras y Enfoque Narrativo")
-    # CORRECCIÓN: Dejamos el valor vacío por defecto para evitar KeyErrors y textos basura
+    
+    # CAMBIO AQUÍ: Quitamos la búsqueda de la columna inexistente y ponemos un valor vacío o un placeholder
     notas_input = st.text_area(
         "Ajusta el enfoque o añade notas para el prompt:",
-        value="", 
-        placeholder="Escribe aquí notas adicionales o el enfoque específico...",
+        value="", # Esto evita el KeyError porque ya no busca en el Excel
+        placeholder="Escribe aquí el enfoque específico o notas adicionales...",
         height=100
     )
 
