@@ -43,7 +43,7 @@ ESTRUCTURA DE REFERENCIA:
 CONTEXTO ESTRATÉGICO DE LA SERIE:
 - Serie Actual: {contenido['Serie']}
 - Etapa de Campaña: {contenido['Objetivo_Serie']}
-- Paso Narrativo: {contenido['Paso (1-4)']} de 4
+
 - Tipo de Contenido: {contenido['Tipo de Contenido']}
 
 MATERIA PRIMA:
