@@ -90,5 +90,5 @@ if st.button("🚀 GENERAR PROMPT MAESTRO"):
 # PESTAÑA 2: ARQUITECTO DE SESIONES (Llamada al módulo externo)
 with tab_ppts:
     # LLAMAMOS A LA FUNCIÓN QUE IMPORTAMOS
-    mostrar_arquitecto_ppts()
+    app_arquitecto_sesiones()()
 
