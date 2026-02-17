@@ -11,9 +11,12 @@ def get_google_data():
     # Acceso directo al ID verificado
     sheet = client.open_by_key("1_zDRbDQ3KXl8aiFNkEuOsKLIlKwRc8bD4fyVHguMKI4")
     
-    # Naming solicitado: avatar, contenido, configuracion
+    # Carga de las 4 pestañas
     avatar = pd.DataFrame(sheet.worksheet("Avatar_nuevo").get_all_records())
+    # Cambié el nombre a "Contenido" para que coincida con tu Drive actual
     contenido = pd.DataFrame(sheet.worksheet("Contenido").get_all_records())
     configuracion = pd.DataFrame(sheet.worksheet("Config_Archivos").get_all_records())
-    
-    return avatar, contenido, configuracion
+    # NUEVA LÍNEA: Lectura de las opciones para los botones
+    opciones = pd.DataFrame(sheet.worksheet("Config_Opciones").get_all_records())
+
+    return avatar, contenido, configuracion, opciones
