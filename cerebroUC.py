@@ -5,8 +5,8 @@ from promt_ppts import app_arquitecto_sesiones
 
 st.set_page_config(page_title="Cerebro UC - Matriz de Control", layout="wide")
 
-# Carga de datos
-avatar, contenido, configuracion, opciones = get_google_data()
+# Carga de datos (data_engine debe retornar avatar, contenido, configuracion)
+avatar, contenido, configuracion = get_google_data()
 
 tab_matriz, tab_ppts = st.tabs(["📊 Matriz de Control", "🏗️ Arquitecto de Sesiones"])
 
@@ -40,12 +40,13 @@ with tab_matriz:
     with col_b:
         st.subheader("🎯 Estrategia")
         
-        # Botones dinámicos desde Config_Opciones
-        f_list = opciones['Formato'].dropna().tolist()
+        # Botones dinámicos extraídos directamente de la columna 'Formato' de contenido
+        f_list = sorted(contenido['Formato'].unique().tolist())
         idx_f = f_list.index(fila_c['Formato']) if fila_c['Formato'] in f_list else 0
         formato = st.selectbox("Formato", f_list, index=idx_f)
 
-        o_list = opciones['Objetivo_Serie'].dropna().tolist()
+        # Botones dinámicos extraídos directamente de la columna 'Objetivo_Serie' de contenido
+        o_list = sorted(contenido['Objetivo_Serie'].unique().tolist())
         idx_o = o_list.index(fila_c['Objetivo_Serie']) if fila_c['Objetivo_Serie'] in o_list else 0
         obj_serie = st.selectbox("Objetivo Serie", o_list, index=idx_o)
 
