@@ -83,6 +83,7 @@ Si es 'Post', profundiza en la integración técnica de los archivos.
 Si es 'Trivia', genera una interacción de alto impacto que valide el problema del avatar.
 La trivia es una serie de 4 pregutnas con respuestas de opcion múltiple, que sean simples de contestar pero no tanto, que hagan sentir al avatar inteligente, pero no le hagan romperse la cabeza pensando, se basan en los textos
 Si es video, incluye propuestas de tomas e imágenes y musica que genere las emociones deseadas en el avatar 
-
+Revisa la estructura de los posts en 01_Estructura_Narrativa.docx, ES DECIR, HAY UN ORDEN claro al construir el contenido.. revisalo bien, sin errores, Es hook, problema, solución, oferta, cta..
+LEE LOS TEXTOS Y ANTES DE HACER EL CONTENIDO CONFIRMA QUE LEISTE EL MATERIAL QUE SE TE PIDIO A DETALLE
 NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 """
