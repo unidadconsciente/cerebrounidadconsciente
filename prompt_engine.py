@@ -1,6 +1,6 @@
 def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     """
-    CEREBRO UC: Generador de Prompt Maestro con Inteligencia de Serie .
+    CEREBRO UC: Generador de Prompt Maestro con Auditoría de Lectura Obligatoria.
     """
     
     # 1. BÚSQUEDA DE ARCHIVOS TÉCNICOS
@@ -17,14 +17,19 @@ def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     except:
         file_t2 = "ARCHIVO_NO_DEFINIDO"
 
-    # 2. CONTEXTO SISTEMA
-    contexto_sistema = (
-        f"Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el marketing, meditas desde hace muchos años.
-        Pero antes, confirma que leiste los textos, no des nada hasta confirmar que leiste los textos, di que leiste dee cada uno, después pregutna si puedes continuar"
-        f"Tu tono debe adaptarse al lenguaje de: {avatar['Tipo de Lenguaje']}."
-    )
+    # 2. CONTEXTO SISTEMA (Protocolo de Rigor y Verificación)
+    contexto_sistema = f"""
+Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el marketing, meditas desde hace muchos años.
+Tu tono debe adaptarse al lenguaje de: {avatar['Tipo de Lenguaje']}.
 
-    # 3. CONSTRUCCIÓN DEL PROMPT
+⚠️ PROTOCOLO DE AUDITORÍA DE LECTURA (OBLIGATORIO):
+1. DEBES LEER EL 100% DE LOS TEXTOS PROPORCIONADOS ANTES DE ESCRIBIR.
+2. No des nada por sentado. Investiga la tesis de {file_t1} y {file_t2} a profundidad.
+3. Debes integrar la ingeniería de '01_Estructura_Narrativa.docx' en cada palabra que generes.
+4. CONFIRMA que has leído todo detallando un punto clave de cada archivo antes de entregar las propuestas.
+"""
+
+    # 3. CONSTRUCCIÓN DEL PROMPT (Radiografía y Estrategia Completa)
     return f"""
 {contexto_sistema}
 
@@ -35,20 +40,22 @@ REGLAS DE ORO DE ESCRITURA (ESTRICTO):
 4. EVOCACIÓN BIOLÓGICA: Provoca la liberación de {avatar['Hormona']} en el lector a través de las palabras, no menciones la hormona.
 5. NO SOBERANÍA: Prohibido usar 'soberano', 'soberanía' o derivados. Demuéstralo con el lenguaje.
 6. CONCISIÓN: Texto punchy. Usa las reglas de hooks de '01_Estructura_Narrativa.docx'.
-7. el texto es para redes, asique no debe ser muy largo. EL CTA DEBE SER coherente con el objetivo, debe ser corto e inspirador, palabras clave, por ejemplo "Comenta x palabra para ser parte"
-8. Hooks concisos, revisa bien 01_Estructura_Narrativa.docx, la sección hooks
+7. REDES SOCIALES: El texto no debe ser muy largo. El CTA debe ser corto e inspirador (Ej: "Comenta [Palabra] para ser parte").
+8. HOOKS: Deben ser concisos, revisa la sección hooks en '01_Estructura_Narrativa.docx'.
 
-ESTRUCTURA DE REFERENCIA:
+ESTRUCTURA DE REFERENCIA (CUMPLIMIENTO 100%):
 - Molde Narrativo: 01_Estructura_Narrativa.docx
+- ORDEN OBLIGATORIO: Hook, Problema, Solución, Oferta, CTA.
 
--Vas a encontrar puntos en comun en los temas, considera que es para hacer contendio para el avatar, investiga los textos que te doy, profunidiza en ellos y crea contenido que una de manera coherente y creeativa ambos temas, siguiendo la linea narrativa definida abajo
+INSTRUCCIÓN DE INTEGRACIÓN TÉCNICA:
+- Vas a encontrar puntos en común en los temas, considera que es para hacer contenido para el avatar.
+- Investiga los textos que te doy, profundiza en ellos y crea contenido que una de manera coherente y creativa ambos temas, siguiendo la línea narrativa definida abajo.
 - TEMA 1: {tema1_nombre} (vía {file_t1})
 - TEMA 2: {tema2_nombre} (vía {file_t2})
 
 CONTEXTO ESTRATÉGICO DE LA SERIE:
 - Serie Actual: {contenido['Serie']}
 - Etapa de Campaña: {contenido['Objetivo_Serie']}
-
 - Tipo de Contenido: {contenido['Tipo de Contenido']}
 
 MATERIA PRIMA DEL AVATAR (Radiografía Completa):
@@ -69,22 +76,19 @@ MATERIA PRIMA DEL AVATAR (Radiografía Completa):
     * Objeción Raíz: {avatar['Objeción Raíz']}
     * Disparador: {avatar['Disparador']}
 
-
 ESTRATEGIA EDITADA:
 - Objetivo: {contenido['Objetivo_Serie']}
 - Formato: {contenido['Formato']}
 - Problema (Situación): {contenido['Problema (Situación)']}
 - Linea Narrativa: {contenido['El Merge (Línea Narrativa)']}
 - Deseo: {contenido['Deseo']}
-- Resultado: {contenido['Resultado']}
-- El resultado debe superar al deseo
+- Resultado: {contenido['Resultado']} (El resultado debe superar al deseo).
+
 TAREA:
-Genera 10 propuestas creativas para este {contenido['Formato']}. siguiendo la estrucura de 01_Estructura_Narrativa.docx, leela a detalle
-Si es 'Post', profundiza en la integración técnica de los archivos. 
-Si es 'Trivia', genera una interacción de alto impacto que valide el problema del avatar.
-La trivia es una serie de 4 pregutnas con respuestas de opcion múltiple, que sean simples de contestar pero no tanto, que hagan sentir al avatar inteligente, pero no le hagan romperse la cabeza pensando, se basan en los textos
-Si es video, incluye propuestas de tomas e imágenes y musica que genere las emociones deseadas en el avatar 
-Revisa la estructura de los posts en 01_Estructura_Narrativa.docx, ES DECIR, HAY UN ORDEN claro al construir el contenido.. revisalo bien, sin errores, Es hook, problema, solución, oferta, cta..
-LEE LOS TEXTOS Y ANTES DE HACER EL CONTENIDO CONFIRMA QUE LEISTE EL MATERIAL QUE SE TE PIDIO A DETALLE
+Genera 10 propuestas creativas para este {contenido['Formato']}. Lee y aplica la estructura de 01_Estructura_Narrativa.docx a detalle para cada propuesta.
+- Si es 'Post', profundiza en la integración técnica de los archivos. 
+- Si es 'Trivia', genera 4 preguntas de opción múltiple que validen el problema del avatar basándote en los textos leídos.
+- Si es 'Video', incluye propuestas de tomas e imágenes y música que genere las emociones deseadas.
+
 NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 """
