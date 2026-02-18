@@ -19,7 +19,8 @@ def build_master_prompt(contenido, avatar, configuracion, notas_extra):
 
     # 2. CONTEXTO SISTEMA
     contexto_sistema = (
-        f"Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el marketing, meditas desde hace muchos años "
+        f"Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el marketing, meditas desde hace muchos años.
+        Pero antes, confirma que leiste los textos, no des nada hasta confirmar que leiste los textos, di que leiste dee cada uno, después pregutna si puedes continuar"
         f"Tu tono debe adaptarse al lenguaje de: {avatar['Tipo de Lenguaje']}."
     )
 
