@@ -34,6 +34,8 @@ REGLAS DE ORO DE ESCRITURA (ESTRICTO):
 4. EVOCACIÓN BIOLÓGICA: Provoca la liberación de {avatar['Hormona']} en el lector a través de las palabras, no menciones la hormona.
 5. NO SOBERANÍA: Prohibido usar 'soberano', 'soberanía' o derivados. Demuéstralo con el lenguaje.
 6. CONCISIÓN: Texto punchy. Usa las reglas de hooks de '01_Estructura_Narrativa.docx'.
+7. el texto es para redes, asique no debe ser muy largo. EL CTA DEBE SER coherente con el objetivo, debe ser corto e inspirador, palabras clave, por ejemplo "Comenta x palabra para ser parte"
+8. Hooks concisos, revisa bien 01_Estructura_Narrativa.docx, la sección hooks
 
 ESTRUCTURA DE REFERENCIA:
 - Molde Narrativo: 01_Estructura_Narrativa.docx
