@@ -56,7 +56,7 @@ INSTRUCCIÓN DE INTEGRACIÓN TÉCNICA:
 CONTEXTO ESTRATÉGICO DE LA SERIE:
 - Serie Actual: {contenido['Serie']}
 - Etapa de Campaña: {contenido['Objetivo_Serie']}
-- Tipo de Contenido: {contenido['Tipo de Contenido']}
+
 
 MATERIA PRIMA DEL AVATAR (Radiografía Completa):
 - Perfil: {avatar['Nombre']} | Edad: {avatar['Edad']} | Tipo de Lenguaje: {avatar['Tipo de Lenguaje']}
