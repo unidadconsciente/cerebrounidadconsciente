@@ -27,3 +27,7 @@ def get_google_data():
         configuracion.columns = [c.strip() for c in configuracion.columns]
 
         return avatar, contenido, configuracion
+
+    except Exception as e:
+        st.error(f"Error al cargar datos: {e}")
+        st.stop()
