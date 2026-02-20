@@ -1,6 +1,6 @@
 def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     """
-    CEREBRO UC: Generador de Prompt Maestro con Auditoría de Lectura Obligatoria.
+    CEREBRO UC: Generador de Prompt Maestro con Auditoría, Moldes Dinámicos y CTA.
     """
     
     # 1. BÚSQUEDA DE ARCHIVOS TÉCNICOS
@@ -17,78 +17,71 @@ def build_master_prompt(contenido, avatar, configuracion, notas_extra):
     except:
         file_t2 = "ARCHIVO_NO_DEFINIDO"
 
-    # 2. CONTEXTO SISTEMA (Protocolo de Rigor y Verificación)
-    contexto_sistema = f"""
-Eres un estratega senior de 'Unidad Consciente'. Tu especialidad es el marketing, meditas desde hace muchos años.
-Tu tono debe adaptarse al lenguaje de: {avatar['Tipo de Lenguaje']}.
+    # 2. DEFINICIÓN DE MOLDES POR FORMATO
+    templates = {
+        "Video": """
+TAREA: Genera un GUION ESTRATÉGICO para Video Corto (Reel/TikTok).
+- ESTRUCTURA: [Tiempo] | [Visual/Toma sugerida] | [Voz en Off / Texto].
+- REGLA DE ORO: El gancho visual debe ocurrir en los primeros 1.5 segundos.
+- CIERRE: CTA visual y auditivo simultáneo basado en: {contenido['CTA']}.""",
 
-⚠️ PROTOCOLO DE AUDITORÍA DE LECTURA (OBLIGATORIO):
-1. DEBES LEER EL 100% DE LOS TEXTOS PROPORCIONADOS ANTES DE ESCRIBIR.
-2. No des nada por sentado. Investiga la tesis de {file_t1} y {file_t2} a profundidad.
-3. Debes integrar la ingeniería de '01_Estructura_Narrativa.docx' en cada palabra que generes.
-4. CONFIRMA que has leído todo detallando un punto clave de cada archivo antes de entregar las propuestas.
+        "Post": """
+TAREA: Redacta un POST de una sola diapositiva / Frase corta.
+- FORMATO: Una sola frase corta, potente y motivadora que encapsule la esencia del Merge.
+- REGLA DE ORO: Debe ser 'sharable'. Que el avatar quiera postearla en sus historias.
+- CIERRE: Incluye de forma sutil el CTA: {contenido['CTA']}.""",
+
+        "Carrousel": """
+TAREA: Diseña una ESTRUCTURA DE CARRUSEL (7-10 láminas).
+- LÁMINA 1: Portada con el Hook más disruptivo.
+- LÁMINAS 2-6: Desarrollo narrativo uniendo los temas técnicos y el Merge.
+- LÁMINA FINAL: CTA de cierre. Puedes usar o mejorar creativamente este: {contenido['CTA']}.""",
+
+        "Trivia": """
+TAREA: Crea una TRIVIA DE VALIDACIÓN (4 preguntas).
+- REGLA DE ORO: No deben ser ni muy fáciles ni muy difíciles. El usuario debe sentirse inteligente al responder, pero cuestionado en su incongruencia.
+- ESTRUCTURA: Pregunta, 3 opciones y una 'Explicación Maestra' que valide el acierto del usuario usando los textos técnicos."""
+    }
+
+    # Selección del molde basado en el formato
+    instruccion_formato = templates.get(contenido['Formato'], templates["Post"])
+
+    # 3. CONTEXTO SISTEMA
+    contexto_sistema = f"""
+Eres un estratega senior de 'Unidad Consciente'. Experto en marketing y meditación profunda.
+Tu tono debe ser directo, crítico y alineado al lenguaje de: {avatar['Tipo de Lenguaje']}.
+
+⚠️ PROTOCOLO DE AUDITORÍA:
+1. Lee el 100% de {file_t1} y {file_t2}.
+2. Integra la ingeniería de '01_Estructura_Narrativa.docx'.
+3. Antes de las propuestas, detalla un punto clave que aprendiste de cada archivo técnico.
 """
 
-    # 3. CONSTRUCCIÓN DEL PROMPT (Radiografía y Estrategia Completa)
+    # 4. ENSAMBLE FINAL CON COLUMNA CTA
     return f"""
 {contexto_sistema}
 
-REGLAS DE ORO DE ESCRITURA (ESTRICTO):
-1. ABSTRACCIÓN DEL AVATAR: Prohibido usar nombres propios. Dirígete a la psicología y cargo del avatar.
-2. FLUIDEZ ESTRATÉGICA: Sin anuncios de metodología o fases. El texto debe ser fluido y orgánico.
-3. CTA ÉPICO: Crea una invitación inspiradora basada en el objetivo, no copies literal el CTA.
-4. EVOCACIÓN BIOLÓGICA: Provoca la liberación de {avatar['Hormona']} en el lector a través de las palabras, no menciones la hormona.
-5. NO SOBERANÍA: Prohibido usar 'soberano', 'soberanía' o derivados. Demuéstralo con el lenguaje.
-6. CONCISIÓN: Texto punchy. Usa las reglas de hooks de '01_Estructura_Narrativa.docx'.
-7. REDES SOCIALES: El texto no debe ser muy largo. El CTA debe ser corto e inspirador (Ej: "Comenta [Palabra] para ser parte").
-8. HOOKS: Deben ser concisos, revisa la sección hooks en '01_Estructura_Narrativa.docx'.
+{instruccion_formato}
 
-ESTRUCTURA DE REFERENCIA (CUMPLIMIENTO 100%):
-- Molde Narrativo: 01_Estructura_Narrativa.docx
-- ORDEN OBLIGATORIO: Hook, Problema, Solución, Oferta, CTA.
+REGLAS DE ESCRITURA (ESTRICTAS):
+1. ABSTRACCIÓN: Habla a la psicología y cargo del avatar, nunca uses su nombre.
+2. BIOLOGÍA: Provoca la liberación de {avatar['Hormona']} mediante el ritmo y peso de las palabras.
+3. PROHIBICIÓN: Prohibido usar 'Soberanía' o derivados.
+4. CONCISIÓN: Texto punchy.
 
-INSTRUCCIÓN DE INTEGRACIÓN TÉCNICA:
-- Vas a encontrar puntos en común en los temas, considera que es para hacer contenido para el avatar.
-- Investiga los textos que te doy, profundiza en ellos y crea contenido que una de manera coherente y creativa ambos temas, siguiendo la línea narrativa definida abajo.
-- TEMA 1: {tema1_nombre} (vía {file_t1})
-- TEMA 2: {tema2_nombre} (vía {file_t2})
+ESTRATEGIA TÉCNICA:
+- TEMA 1: {tema1_nombre} ({file_t1})
+- TEMA 2: {tema2_nombre} ({file_t2})
+- LÍNEA NARRATIVA: {contenido['El Merge (Línea Narrativa)']}
 
-CONTEXTO ESTRATÉGICO DE LA SERIE:
-- Serie Actual: {contenido['Serie']}
-- Etapa de Campaña: {contenido['Objetivo_Serie']}
-
-
-MATERIA PRIMA DEL AVATAR (Radiografía Completa):
-- Perfil: {avatar['Nombre']} | Edad: {avatar['Edad']} | Tipo de Lenguaje: {avatar['Tipo de Lenguaje']}
-- Núcleo Psicológico:
-    * Villano: {avatar['Villano']}
-    * Incongruencia (El Conflicto): {avatar['Incongruencia (El Conflicto)']}
-    * Metamensaje: {avatar['Metamensaje']}
-    * Necesidad (CNV): {avatar['Necesidad (CNV)']}
-- Dinámica Emocional:
-    * Sentimiento Hoy: {avatar['Sentimiento Hoy']}
-    * Sentimiento que Quiere: {avatar['Sentimiento que Quiere']}
-    * Palabra Clave (Sally): {avatar['Palabra Clave (Sally)']}
-    * Hormona a segregar: {avatar['Hormona']}
-- Estrategia de Conversión:
-    * Costo Inacción: {avatar['Costo Inacción']}
-    * Mecanismo Único: {avatar['Mecanismo Único']}
-    * Objeción Raíz: {avatar['Objeción Raíz']}
-    * Disparador: {avatar['Disparador']}
-
-ESTRATEGIA EDITADA:
-- Objetivo: {contenido['Objetivo_Serie']}
-- Formato: {contenido['Formato']}
-- Problema (Situación): {contenido['Problema (Situación)']}
-- Linea Narrativa: {contenido['El Merge (Línea Narrativa)']}
+RADIOGRAFÍA DEL AVATAR:
+- Villano: {avatar['Villano']}
+- Incongruencia: {avatar['Incongruencia (El Conflicto)']}
+- Metamensaje: {avatar['Metamensaje']}
+- Problema actual: {contenido['Problema (Situación)']}
 - Deseo: {contenido['Deseo']}
-- Resultado: {contenido['Resultado']} (El resultado debe superar al deseo).
-
-TAREA:
-Genera 10 propuestas creativas para este {contenido['Formato']}. Lee y aplica la estructura de 01_Estructura_Narrativa.docx a detalle para cada propuesta.
-- Si es 'Post', profundiza en la integración técnica de los archivos. 
-- Si es 'Trivia', genera 4 preguntas de opción múltiple que validen el problema del avatar basándote en los textos leídos.
-- Si es 'Video', incluye propuestas de tomas e imágenes y música que genere las emociones deseadas.
+- Resultado Final: {contenido['Resultado']}
+- CTA BASE: {contenido['CTA']}
 
 NOTAS EXTRA: {notas_extra if notas_extra else "Sin notas adicionales."}
 """
