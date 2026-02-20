@@ -23,9 +23,14 @@ with tab_matriz:
     with c3:
         filas = contenido[(contenido['Serie'] == serie_sel) & (contenido['Semana'] == semana_sel)]
         
+        # CORRECCIÓN: Definición de fila_c para que el match con Avatar funcione
+        if not filas.empty:
+            fila_c = filas.iloc[0]
+        else:
+            st.error("No se encontró contenido para esta selección.")
+            st.stop()
 
     # Selección de fila de contenido y match con Avatar completo
-    
     fila_a = avatar_df[avatar_df['Nombre'] == fila_c['Avatar']].iloc[0]
 
     st.markdown("---")
@@ -98,14 +103,12 @@ with tab_matriz:
         st.caption(f"Archivo: {f2}")
 
     
-# 4. NOTAS EXTRAS Y ENFOQUE
-# 4. NOTAS EXTRAS Y ENFOQUE
+    # 4. NOTAS EXTRAS Y ENFOQUE
     st.markdown("### ✍️ Notas Extras y Enfoque Narrativo")
     
-    # CAMBIO AQUÍ: Quitamos la búsqueda de la columna inexistente y ponemos un valor vacío o un placeholder
     notas_input = st.text_area(
         "Ajusta el enfoque o añade notas para el prompt:",
-        value="", # Esto evita el KeyError porque ya no busca en el Excel
+        value="", 
         placeholder="Escribe aquí el enfoque específico o notas adicionales...",
         height=100
     )
