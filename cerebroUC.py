@@ -22,10 +22,10 @@ with tab_matriz:
         semana_sel = st.selectbox("📅 Semana:", semanas)
     with c3:
         filas = contenido[(contenido['Serie'] == serie_sel) & (contenido['Semana'] == semana_sel)]
-        tipo_sel = st.radio("📍 Tipo de Contenido:", filas['Tipo de Contenido'].unique(), horizontal=True)
+        
 
     # Selección de fila de contenido y match con Avatar completo
-    fila_c = filas[filas['Tipo de Contenido'] == tipo_sel].iloc[0]
+    
     fila_a = avatar_df[avatar_df['Nombre'] == fila_c['Avatar']].iloc[0]
 
     st.markdown("---")
